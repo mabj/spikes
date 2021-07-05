@@ -16,7 +16,8 @@ print(a)
 
 
 ```python
-a.ndim  # number of dimentions
+# number of dimentions
+a.ndim
 ```
 
 
@@ -28,7 +29,8 @@ a.ndim  # number of dimentions
 
 
 ```python
-a.shape # shape of the array - this is a tuple with dimention's size
+# shape of the array - this is a tuple with dimention's size
+a.shape
 ```
 
 
@@ -40,7 +42,8 @@ a.shape # shape of the array - this is a tuple with dimention's size
 
 
 ```python
-a.dtype # basic data type
+# basic data type
+a.dtype
 ```
 
 
@@ -52,7 +55,8 @@ a.dtype # basic data type
 
 
 ```python
-a.size # number of elements in the array
+# number of elements in the array
+a.size
 ```
 
 
@@ -64,7 +68,8 @@ a.size # number of elements in the array
 
 
 ```python
-a.nbytes # number of bytes used in the array
+# number of bytes used in the array
+a.nbytes
 ```
 
 
@@ -76,7 +81,8 @@ a.nbytes # number of bytes used in the array
 
 
 ```python
-a.itemsize # number of bytes of data type
+# number of bytes of data type
+a.itemsize
 ```
 
 
@@ -90,7 +96,8 @@ a.itemsize # number of bytes of data type
 
 
 ```python
-a[1,1] # accessing one specific element
+# accessing one specific element
+a[1,1]
 ```
 
 
@@ -102,7 +109,8 @@ a[1,1] # accessing one specific element
 
 
 ```python
-a[0, :] # accessing first row
+# accessing first row
+a[0, :]
 ```
 
 
@@ -114,7 +122,8 @@ a[0, :] # accessing first row
 
 
 ```python
-a[: , 0] # Fetching first column
+# Fetching first column
+a[: , 0]
 ```
 
 
@@ -126,7 +135,8 @@ a[: , 0] # Fetching first column
 
 
 ```python
-a[: , 1] = (99, 99) # Updating a specific column
+# Updating a specific column
+a[: , 1] = (99, 99)
 print(a)
 ```
 
@@ -138,7 +148,8 @@ print(a)
 
 
 ```python
-np.ones((3, 3), dtype="int8") # creates arrays of 1s
+# creates arrays of 1s
+np.ones((3, 3), dtype="int8")
 ```
 
 
@@ -152,7 +163,8 @@ np.ones((3, 3), dtype="int8") # creates arrays of 1s
 
 
 ```python
-np.zeros((3,3), dtype="int8") # creates arrays of 0s
+# creates arrays of 0s
+np.zeros((3,3), dtype="int8")
 ```
 
 
@@ -166,7 +178,8 @@ np.zeros((3,3), dtype="int8") # creates arrays of 0s
 
 
 ```python
-np.full((2,2), 99) # creates arrays fileld with specific value
+# creates arrays fileld with specific value
+np.full((2,2), 99)
 ```
 
 
@@ -179,7 +192,8 @@ np.full((2,2), 99) # creates arrays fileld with specific value
 
 
 ```python
-np.random.rand(2,2) # Generate random float values arrays
+# Generate random float values arrays
+np.random.rand(2,2)
 ```
 
 
@@ -192,7 +206,8 @@ np.random.rand(2,2) # Generate random float values arrays
 
 
 ```python
-np.random.randint(7, size=(2,2)) # Generate random int values arrays 
+# Generate random int values arrays 
+np.random.randint(7, size=(2,2))
 ```
 
 
@@ -205,7 +220,8 @@ np.random.randint(7, size=(2,2)) # Generate random int values arrays
 
 
 ```python
-np.identity(5) # Generate identity matrixes
+# Generate identity matrixes
+np.identity(5)
 ```
 
 
@@ -275,7 +291,8 @@ a + 5
 
 
 ```python
-a.reshape((4)) # reshaping an array
+# reshaping an array
+a.reshape((4))
 ```
 
 
@@ -287,8 +304,9 @@ a.reshape((4)) # reshaping an array
 
 
 ```python
+# repeat the content of an specific array
 b = np.array([[1,2,3]])
-np.repeat(b, 3, axis=0) # repeat the content of an specific array
+np.repeat(b, 3, axis=0)
 ```
 
 
@@ -331,7 +349,8 @@ np.hstack([b,c])
 
 
 ```python
-np.max(a) # or a.max() - returns max value inside Array
+# or a.max() - returns max value inside Array
+np.max(a)
 ```
 
 
@@ -343,7 +362,8 @@ np.max(a) # or a.max() - returns max value inside Array
 
 
 ```python
-np.min(a) # or a.min() - returns min value inside Array
+# or a.min() - returns min value inside Array
+np.min(a)
 ```
 
 
@@ -355,7 +375,8 @@ np.min(a) # or a.min() - returns min value inside Array
 
 
 ```python
-np.max(a, axis=1) # returns an array with max value of each internal Array
+# returns an array with max value of each internal Array
+np.max(a, axis=1)
 ```
 
 
@@ -367,7 +388,8 @@ np.max(a, axis=1) # returns an array with max value of each internal Array
 
 
 ```python
-np.sum(a) # returns a summation of all elements in an array
+# returns a summation of all elements in an array
+np.sum(a)
 ```
 
 
@@ -379,7 +401,8 @@ np.sum(a) # returns a summation of all elements in an array
 
 
 ```python
-np.sum(a, axis=1) # returns summation of rows
+# returns summation of rows
+np.sum(a, axis=1)
 ```
 
 
@@ -391,7 +414,8 @@ np.sum(a, axis=1) # returns summation of rows
 
 
 ```python
-np.average(a) # returns average
+# returns average
+np.average(a)
 ```
 
 
