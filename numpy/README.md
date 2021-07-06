@@ -1,4 +1,4 @@
-### Importing library and basic array
+## Importing library and basic array
 
 
 ```python
@@ -12,7 +12,7 @@ print(a)
      [3 4]]
 
 
-### Printing characteristcs of an Array
+## Printing characteristcs of an Array
 
 
 ```python
@@ -49,7 +49,7 @@ a.dtype
 
 
 
-    dtype('int8')
+    dtype('int16')
 
 
 
@@ -92,7 +92,7 @@ a.itemsize
 
 
 
-### Accessing and updating elements in array
+## Accessing and updating elements in array
 
 
 ```python
@@ -144,7 +144,21 @@ print(a)
      [ 3 99]]
 
 
-### Generating specific matrixes
+
+```python
+# "Fancy indexing" == specifing a list with indexes 
+l1 = np.array([1,2,3,4,5,6], dtype="int")
+l1[[0,3,4]]
+```
+
+
+
+
+    array([1, 4, 5])
+
+
+
+## Generating specific matrixes
 
 
 ```python
@@ -199,8 +213,8 @@ np.random.rand(2,2)
 
 
 
-    array([[0.04652306, 0.46851432],
-           [0.081302  , 0.39715904]])
+    array([[0.28195721, 0.78903445],
+           [0.51407183, 0.09611987]])
 
 
 
@@ -213,8 +227,8 @@ np.random.randint(7, size=(2,2))
 
 
 
-    array([[1, 6],
-           [6, 2]])
+    array([[0, 4],
+           [3, 5]])
 
 
 
@@ -235,7 +249,22 @@ np.identity(5)
 
 
 
-### Transformations and Mathematical operations
+
+```python
+# Pics up elements from a list to generate array
+np.random.choice([1,2,11], size=(3,3))
+```
+
+
+
+
+    array([[ 2,  1, 11],
+           [ 1, 11, 11],
+           [ 1,  2,  1]])
+
+
+
+## Transformations and Mathematical operations
 
 
 ```python
@@ -245,8 +274,8 @@ a * 2
 
 
 
-    array([[2, 4],
-           [6, 8]], dtype=int16)
+    array([[  2, 198],
+           [  6, 198]], dtype=int16)
 
 
 
@@ -258,8 +287,8 @@ a / 2
 
 
 
-    array([[0.5, 1. ],
-           [1.5, 2. ]])
+    array([[ 0.5, 49.5],
+           [ 1.5, 49.5]])
 
 
 
@@ -271,8 +300,8 @@ a ** 2
 
 
 
-    array([[ 1,  4],
-           [ 9, 16]], dtype=int16)
+    array([[   1, 9801],
+           [   9, 9801]], dtype=int16)
 
 
 
@@ -284,8 +313,24 @@ a + 5
 
 
 
-    array([[6, 7],
-           [8, 9]], dtype=int16)
+    array([[  6, 104],
+           [  8, 104]], dtype=int16)
+
+
+
+
+```python
+# DOT multiplication
+b1 = np.array([1,2,3], dtype="int")
+b2 = np.array([1,2,3], dtype="int")
+np.dot(b1,b2) # multiplies correspondent elements and do a summation
+b1 @ b2 # another syntax to do DOT multiplications
+```
+
+
+
+
+    14
 
 
 
@@ -298,7 +343,7 @@ a.reshape((4))
 
 
 
-    array([1, 2, 3, 4], dtype=int16)
+    array([ 1, 99,  3, 99], dtype=int16)
 
 
 
@@ -345,7 +390,115 @@ np.hstack([b,c])
 
 
 
-### Statistics
+
+```python
+# Array Flattening
+l1 = np.array([[1,2], [3,4]], dtype="int")
+l1.flatten()
+```
+
+
+
+
+    array([1, 2, 3, 4])
+
+
+
+
+```python
+# Array flattening but by reference == ravel (efficient!)
+print(l1)
+l2 = l1.ravel()
+print(l2)
+l2[3] = 99
+print(l1)
+```
+
+    [[1 2]
+     [3 4]]
+    [1 2 3 4]
+    [[ 1  2]
+     [ 3 99]]
+
+
+
+```python
+# Adding new axis == adding new dimention
+l1 = np.arange(1,10)
+l2 = l1[np.newaxis, :]
+print(l2)
+l2 = l1[: , np.newaxis]
+print(l2)
+```
+
+    [[1 2 3 4 5 6 7 8 9]]
+    [[1]
+     [2]
+     [3]
+     [4]
+     [5]
+     [6]
+     [7]
+     [8]
+     [9]]
+
+
+
+```python
+# Concatenating arrays
+l1 = np.array([[1,2], [3,4]], dtype="int")
+l2 = np.array([[5,6]], dtype="int")
+np.concatenate((l1,l2))
+```
+
+
+
+
+    array([[1, 2],
+           [3, 4],
+           [5, 6]])
+
+
+
+
+```python
+# Broadcasting
+```
+
+Broadcasting is operations using arrays of different dimensionalities. All those basic arithmetic operations at the beginning of this section are broadcats `a1 * 2` or `a1 + 2`. Where all elements in a1 are impacted by the operation with a single element.
+
+
+```python
+l1 = np.array([[1,2,3], [4,5,6], [7,8,9]], dtype="int")
+l2 = np.array([[1,2,1]], dtype="int")
+l1 * l2
+```
+
+
+
+
+    array([[ 1,  4,  3],
+           [ 4, 10,  6],
+           [ 7, 16,  9]])
+
+
+
+
+```python
+# Comparing two arrays
+l1 = np.array([1,2,3,4], dtype="int")
+l2 = np.array([1,2,3,4], dtype="int")
+np.allclose(l1,l2)
+```
+
+
+
+
+    True
+
+
+
+## Statistics
 
 
 ```python
@@ -356,7 +509,7 @@ np.max(a)
 
 
 
-    4
+    99
 
 
 
@@ -382,7 +535,7 @@ np.max(a, axis=1)
 
 
 
-    array([2, 4], dtype=int16)
+    array([99, 99], dtype=int16)
 
 
 
@@ -395,7 +548,7 @@ np.sum(a)
 
 
 
-    10
+    202
 
 
 
@@ -408,7 +561,7 @@ np.sum(a, axis=1)
 
 
 
-    array([3, 7])
+    array([100, 102])
 
 
 
@@ -416,16 +569,17 @@ np.sum(a, axis=1)
 ```python
 # returns average
 np.average(a)
+np.mean(a) # another way to do the same
 ```
 
 
 
 
-    2.5
+    50.5
 
 
 
-### Linear Algebra
+## Linear Algebra
 
 
 ```python
@@ -437,18 +591,18 @@ print(b)
 np.matmul(a,b)
 ```
 
-    [[6 2 0]
-     [2 6 1]]
-    [[2 3]
-     [4 6]
-     [1 2]]
+    [[4 1 3]
+     [0 6 0]]
+    [[4 0]
+     [5 2]
+     [4 4]]
 
 
 
 
 
-    array([[20, 30],
-           [29, 44]])
+    array([[33, 14],
+           [30, 12]])
 
 
 
@@ -489,21 +643,83 @@ print(c)
 np.linalg.inv(c)
 ```
 
-    [[2 0 2]
-     [2 3 3]
-     [2 6 6]]
+    [[1 4 6]
+     [6 3 4]
+     [2 2 5]]
 
 
 
 
 
-    array([[ 0.        ,  1.        , -0.5       ],
-           [-0.5       ,  0.66666667, -0.16666667],
-           [ 0.5       , -1.        ,  0.5       ]])
+    array([[-0.15555556,  0.17777778,  0.04444444],
+           [ 0.48888889,  0.15555556, -0.71111111],
+           [-0.13333333, -0.13333333,  0.46666667]])
 
 
 
-### File IO - Reading and Writing
+
+```python
+# Transposing a Matrix
+b = np.array([[1,2], [3,4]], dtype="int")
+np.transpose(b)
+b.T # another syntax convention to transpose an Array
+```
+
+
+
+
+    array([[1, 3],
+           [2, 4]])
+
+
+
+
+```python
+# Determinant of a Matrix
+np.linalg.det(b)
+```
+
+
+
+
+    -2.0000000000000004
+
+
+
+
+```python
+# main diagonal of a Matrix
+np.diag(b)
+```
+
+
+
+
+    array([1, 4])
+
+
+
+## Linear Systems
+
+```
+The admission fee at a small fair is $1.50 for children and $4.00 for adults. On a certain day, 2200 people enter the fair and $5050 is collected. How many children and how many adults attended?
+```
+
+
+```python
+A = np.array([[1.0,1.0], [1.5, 4.0]])
+b = np.array([2200, 5050])
+x = np.linalg.inv(A).dot(b)
+print(x)
+x = np.linalg.solve(A,b)
+print(x)
+```
+
+    [1500.  700.]
+    [1500.  700.]
+
+
+## File IO - Reading and Writing
 
 
 ```python
@@ -554,7 +770,7 @@ b
 
 
 
-### Advanced Indexing
+## Advanced Indexing
 
 
 ```python
@@ -706,3 +922,12 @@ example[[0, 4, 5],3:]
            [29, 30]])
 
 
+
+## References
+
+ * https://docs.scipy.org/doc/scipy/reference/linalg.html
+ * https://numpy.org/doc/stable/index.html
+ * https://numpy.org/doc/stable/reference/arrays.dtypes.html
+ * https://www.youtube.com/watch?v=9JUAPgtkKpI **
+ * https://www.youtube.com/watch?v=QUT1VHiLmmI *****
+ * https://www.youtube.com/watch?v=ZB7BZMhfPgk *****
