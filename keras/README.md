@@ -38,7 +38,6 @@ data_test = pd.read_csv(data_test_file)
 
 print(data_train.shape)
 data_train.head()
-
 ```
 
     (60000, 785)
@@ -285,6 +284,9 @@ plot(train_features, 4)
 
 
 ```python
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 # Define a sequential model. This defines the way Keras will generate a model. Keras has three different
 # type of models: sequential, functional and subclassing [3].
 model = tf.keras.Sequential()
@@ -301,15 +303,11 @@ model.add(tf.keras.layers.Dense(10, activation=tf.nn.softmax))
 tf.keras.utils.plot_model(model, to_file="model.png", show_shapes=True)
 ```
 
-    2021-07-13 21:30:31.711286: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
-    To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-
-
 
 
 
     
-![png](output_13_1.png)
+![png](output_13_0.png)
     
 
 
@@ -320,8 +318,3 @@ tf.keras.utils.plot_model(model, to_file="model.png", show_shapes=True)
 1. https://www.kaggle.com/zalando-research/fashionmnist
 1. https://keras.io/api/models/
 1. https://keras.io/api/layers/activations/
-
-
-```python
-
-```
