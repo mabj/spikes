@@ -307,7 +307,7 @@ tf.keras.utils.plot_model(model, to_file="model.png", show_shapes=True)
 
 
     
-![png](output_13_0.png)
+![png](output_13_1.png)
     
 
 
