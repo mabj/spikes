@@ -1,5 +1,6 @@
 .DS_Store
 *.h5
+*.png
 *.model
 .python_env
 # Byte-compiled / optimized / DLL files
